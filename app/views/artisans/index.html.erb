@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+  </head>
+  <body>
+    <div id="vizcontainer">
+      <svg style="width:500px;height:500px;border:1px lightgray solid;"
+
+    </div>
+    <script>
+
+      $.ajax({
+        url: "http://localhost:3000/artisans",
+        method: "GET",
+        dataType: "json"
+      }).done(function(data){
+          var profits = [];
+          data.forEach(function(artisan){
+            profits.push(artisan.profit);
+          })
+          console.log(profits);
+          var earningChartGeo = d3.pie();
+          var geoEarnings = earningChartGeo(profits);
+
+          var newArc = d3.arc();
+          newArc.innerRadius(50)
+            .outerRadius(100)
+          console.log(newArc(geoEarnings[0]));
+
+          var fillScale = d3.scaleOrdinal()
+            .range(["#581845", "#C70039", "#FF5733"])
+          d3.select("svg")
+            .append("g")
+            .attr("transform","translate(250,250)")
+            .selectAll("path")
+            .data(geoEarnings)
+            .enter()
+            .append("path")
+            .attr("d", newArc)
+            .style("fill", (d,i) => fillScale(i))
+            .style("stroke", "black")
+            .style("stroke-width", "2px");
+            d3.select("svg")
+                .append("text")
+                .attr("x",210)
+                .attr("y",250)
+                .text("");
+
+
+            d3.select("svg")
+                .append("text")
+                .attr("x",100)
+                .attr("y",400)
+                .text("Artisan earnings (between $82-$410, at $82 per item)");
+      });
+
+
+
+    var bagDistribution = [1,3,2,2,3,3,3,1,4,5,1,2,2,1,1,3,1,2,2,1,2,1,2,2,2,3,3,3,1,2,1,1,1,3,1,2,2,2];
+
+
+    </script>
+  </body>
