@@ -1,24 +1,8 @@
-# README
+# DAR PROYECTOS application
+##Desarrollo Artesanal Rentable - Sustainable Artisan Development Projects
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application runs on Rails 5.1.2, and utilizes the D3.js (version 4) library, which integrates the more recent changes the the Javascript language (ES2015/ES6).
 
-Things you may want to cover:
+While in development, the application can be run locally on localhost:3000/artisans.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![GEOS project, Progreso, ring plot](img/progreso-indiv-earnings.png)
