@@ -5,4 +5,4 @@ This application runs on Rails 5.1.2, and utilizes the D3.js (version 4) library
 
 While in development, the application can be run locally on localhost:3000/artisans.
 
-![GEOS project, Progreso, ring plot](img/progreso-indiv-earnings.png)
+![Progreso, ring plot](app/assets/images/first_display_ring.png)
