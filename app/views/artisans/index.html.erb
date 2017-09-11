@@ -4,59 +4,114 @@
   </head>
   <body>
     <div id="vizcontainer">
-      <svg style="width:500px;height:500px;border:1px lightgray solid;"
+      <svg></svg>
 
     </div>
-    <script>
+    <div id="nextContainer">
+      <svg></svg>
 
-      $.ajax({
-        url: "http://localhost:3000/artisans",
-        method: "GET",
-        dataType: "json"
-      }).done(function(data){
-          var profits = [];
-          data.forEach(function(artisan){
-            profits.push(artisan.profit);
-          })
-          console.log(profits);
-          var earningChartGeo = d3.pie();
-          var geoEarnings = earningChartGeo(profits);
+    </div>
 
-          var newArc = d3.arc();
-          newArc.innerRadius(50)
-            .outerRadius(100)
-          console.log(newArc(geoEarnings[0]));
+  <script>
+    $( document ).ready(function() {
+    console.log( "ready!" );
+    $.ajax({
+      url: "http://localhost:3000/artisans",
+      method: "GET",
+      dataType: "json"
+    }).done(function(data){
+        var profits = [];
+        data.forEach(function(artisan){
+          profits.push(artisan.profit);
+        var bags = [];
+        var averageDays = [];
+        data.forEach(function(artisan){
+          bags.push(artisan.bags);
+          averageDays.push(artisan.average);
 
-          var fillScale = d3.scaleOrdinal()
-            .range(["#581845", "#C70039", "#FF5733"])
+        })
+        console.log(profits);
+        console.log(bags);
+        console.log(averageDays);
+        var earningChartGeo = d3.pie();
+        var geoEarnings = earningChartGeo(profits);
+
+        var newArc = d3.arc();
+        newArc.innerRadius(50)
+          .outerRadius(100)
+        console.log(newArc(geoEarnings[0]));
+
+        var fillScale = d3.scaleOrdinal()
+          .range([d3.rgb("#581845"), d3.rgb("#C70039")])
+        d3.select("svg")
+          .append("g")
+          .attr("transform","translate(250,250)")
+          .selectAll("path")
+          .data(geoEarnings)
+          .enter()
+          .append("path")
+          .attr("d", newArc)
+          .style("fill", (d,i) => fillScale(i))
+          .style("stroke", "black")
+          .style("stroke-width", "2px");
           d3.select("svg")
-            .append("g")
-            .attr("transform","translate(250,250)")
-            .selectAll("path")
-            .data(geoEarnings)
-            .enter()
-            .append("path")
-            .attr("d", newArc)
-            .style("fill", (d,i) => fillScale(i))
-            .style("stroke", "black")
-            .style("stroke-width", "2px");
-            d3.select("svg")
-                .append("text")
-                .attr("x",210)
-                .attr("y",250)
-                .text("");
+              .append("text")
+              .attr("x",210)
+              .attr("y",250)
+              .text("TEMBLA");
 
 
-            d3.select("svg")
-                .append("text")
-                .attr("x",100)
-                .attr("y",400)
-                .text("Artisan earnings (between $82-$410, at $82 per item)");
-      });
+          d3.select("svg")
+              .append("text")
+              .attr("x",100)
+              .attr("y",400)
+              .text("Artisan earnings (between $82-$410, at $82 per item)");
+
+
+    var margin = {top: 20, right: 20, bottom: 30, left: 40},
+  width = 960 - margin.left - margin.right,
+  height = 500 - margin.top - margin.bottom;
+
+  // set the ranges
+
+
+  var x = d3.scaleBand()
+            .range([0, width])
+            .padding(0.1);
+  var y = d3.scaleLinear()
+            .range([height, 0])
+
+
+  // append the svg object to the body of the page
+  // append a 'group' element to 'svg'
+  // moves the 'group' element to the top left margin
+  var svg = d3.select("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
+
+
+      d3.select("svg")
+        .selectAll("rect")
+        .data(averageDays)
+        .enter()
+        .append("rect")
+        .attr("width", 25)
+        .attr("height", d => d)
+        .style("fill", "slateblue")
+        .style("opacity", .75)
+        .attr("x", (d,i) => i * 25)
+        .attr("y", d => 100 - d);
+
+
+      })
+  });
+});
 
 
 
-    var bagDistribution = [1,3,2,2,3,3,3,1,4,5,1,2,2,1,1,3,1,2,2,1,2,1,2,2,2,3,3,3,1,2,1,1,1,3,1,2,2,2];
 
 
     </script>
