@@ -1,16 +1,10 @@
-<!doctype html>
-<html>
-  <head>
-  </head>
-  <body>
+
+
     <div id="vizcontainer">
       <svg></svg>
 
     </div>
-    <div id="nextContainer">
-      <svg></svg>
 
-    </div>
 
   <script>
     $( document ).ready(function() {
@@ -30,19 +24,19 @@
           averageDays.push(artisan.average);
 
         })
-        console.log(profits);
-        console.log(bags);
-        console.log(averageDays);
+        // console.log(profits);
+        // console.log(bags);
+        // console.log(averageDays);
         var earningChartGeo = d3.pie();
         var geoEarnings = earningChartGeo(profits);
 
         var newArc = d3.arc();
         newArc.innerRadius(50)
           .outerRadius(100)
-        console.log(newArc(geoEarnings[0]));
+        // console.log(newArc(geoEarnings[0]));
 
         var fillScale = d3.scaleOrdinal()
-          .range([d3.rgb("#581845"), d3.rgb("#C70039")])
+          .range([d3.rgb("#581845"), d3.rgb("#3498DB"), d3.rgb("#C70039")])
         d3.select("svg")
           .append("g")
           .attr("transform","translate(250,250)")
@@ -56,7 +50,7 @@
           .style("stroke-width", "2px");
           d3.select("svg")
               .append("text")
-              .attr("x",210)
+              .attr("x",220)
               .attr("y",250)
               .text("TEMBLA");
 
@@ -67,6 +61,8 @@
               .attr("y",400)
               .text("Artisan earnings (between $82-$410, at $82 per item)");
 
+
+// add on hover for path objects to increase scale by 1.2, display artisan name
 
     var margin = {top: 20, right: 20, bottom: 30, left: 40},
   width = 960 - margin.left - margin.right,
@@ -104,15 +100,14 @@
         .style("opacity", .75)
         .attr("x", (d,i) => i * 25)
         .attr("y", d => 100 - d);
-
+        d3.select("svg")
+            .append("text")
+            .attr("x",100)
+            .attr("y",125)
+            .text("Average number of days, per artisan, to complete one item.");
 
       })
   });
 });
 
-
-
-
-
     </script>
-  </body>
