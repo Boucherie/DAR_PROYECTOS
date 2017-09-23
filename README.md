@@ -8,3 +8,6 @@ While in development, the application can be run locally on localhost:3000/artis
 Aug 30/17 - csv file added to app, connected directly to AJAX call; relevant data parsed out to generate completed ring (pie) chart, bar chart in progress.
 
 ![Progreso, ring plot](app/assets/images/first_display_ring.png)
+
+
+Sept 22/17 - replaced csv file with current order data, commented out d3 charts for the time being; setting up index page to take production capacity inputs.
