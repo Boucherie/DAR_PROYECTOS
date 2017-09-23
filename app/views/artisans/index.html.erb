@@ -1,12 +1,86 @@
 
+<div id="community-select">
+  <div class="community">
+    <input type="checkbox" id="chilete"  value="1.3">
+    <label for="chilete">Chilete</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="huanchaco" value="1.3">
+    <label for="huanchaco">Huanchao</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="huamachuco" value="1.5">
+    <label for="huamachuco">Huamachuco</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="julcan" value="1.2">
+    <label for="julcan">Julcan</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="magaly" value="2.4">
+    <label for="magaly">Magaly</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="milagro" value="1.3">
+    <label for="milagro">Milagro</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="paypay" value="1.3">
+    <label for="paypay">Paypay</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="progreso-rapidas" value="1.4">
+    <label for="progreso-rapidas">Progreso (1)</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="progreso-lentas" value="1.2">
+    <label for="progreso-lentas">Progreso (2)</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="otro-sierra" value="1.5">
+    <label for="otro-sierra">Otro Sierra</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="palmeras" value="1.3">
+    <label for="palmeras">Palmeras</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="salitre-rapidas" value="3.0">
+    <label for="salitre-rapidas">Salitre (1)</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="salitre-lentas" value="1.7">
+    <label for="salitre-lentas">Salitre (2)</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="san-pedro-de-lloc" value="1.3">
+    <label for="san-pedro-de-lloc">San Pedro de Lloc</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="limon-carlo-rapidas" value="3.2">
+    <label for="limon-carlo-rapidas">Limon Carlo (1)</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="limon-carlo-lentas" value="2.2">
+    <label for="limon-carlo-lentas">Limon Carlo (2)</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="tembladera-rapidas" value="2.5">
+    <label for="tembladera-rapidas">Tembladera (1)</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="tembladera-lentas" value="1.4">
+    <label for="tembladera-lentas">Tembladera (2)</label>
+  </div>
+</div>
 
-    <div id="vizcontainer">
-      <svg></svg>
+<div id="vizcontainer">
+  <svg></svg>
 
-    </div>
+</div>
 
 
-  <script>
+  <!-- <script>
     $( document ).ready(function() {
     console.log( "ready!" );
     $.ajax({
@@ -22,13 +96,10 @@
         data.forEach(function(artisan){
           bags.push(artisan.bags);
           averageDays.push(artisan.average);
-
         })
-        // console.log(profits);
-        // console.log(bags);
-        // console.log(averageDays);
-        var earningChartGeo = d3.pie();
-        var geoEarnings = earningChartGeo(profits);
+
+        var artisanAverageChart = d3.pie();
+        var artisanAverage = artisanAverageChart(averageDays);
 
         var newArc = d3.arc();
         newArc.innerRadius(50)
@@ -36,12 +107,12 @@
         // console.log(newArc(geoEarnings[0]));
 
         var fillScale = d3.scaleOrdinal()
-          .range([d3.rgb("#581845"), d3.rgb("#3498DB"), d3.rgb("#C70039")])
+          .range([d3.rgb("#581845"), d3.rgb("#34495E"), d3.rgb("#1ABC9C"), d3.rgb("#3498DB"), d3.rgb("#C70039")])
         d3.select("svg")
           .append("g")
           .attr("transform","translate(250,250)")
           .selectAll("path")
-          .data(geoEarnings)
+          .data(artisanAverage)
           .enter()
           .append("path")
           .attr("d", newArc)
@@ -54,60 +125,13 @@
               .attr("y",250)
               .text("TEMBLA");
 
-
           d3.select("svg")
               .append("text")
               .attr("x",100)
               .attr("y",400)
-              .text("Artisan earnings (between $82-$410, at $82 per item)");
-
-
-// add on hover for path objects to increase scale by 1.2, display artisan name
-
-    var margin = {top: 20, right: 20, bottom: 30, left: 40},
-  width = 960 - margin.left - margin.right,
-  height = 500 - margin.top - margin.bottom;
-
-  // set the ranges
-
-
-  var x = d3.scaleBand()
-            .range([0, width])
-            .padding(0.1);
-  var y = d3.scaleLinear()
-            .range([height, 0])
-
-
-  // append the svg object to the body of the page
-  // append a 'group' element to 'svg'
-  // moves the 'group' element to the top left margin
-  var svg = d3.select("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-      .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
-
-
-      d3.select("svg")
-        .selectAll("rect")
-        .data(averageDays)
-        .enter()
-        .append("rect")
-        .attr("width", 25)
-        .attr("height", d => d)
-        .style("fill", "slateblue")
-        .style("opacity", .75)
-        .attr("x", (d,i) => i * 25)
-        .attr("y", d => 100 - d);
-        d3.select("svg")
-            .append("text")
-            .attr("x",100)
-            .attr("y",125)
-            .text("Average number of days, per artisan, to complete one item.");
-
+              .text("Average number of days, per artisan, to complete one item.");
       })
   });
 });
 
-    </script>
+    </script> -->

@@ -8,8 +8,15 @@ class ArtisansController < ApplicationController
         render :index
       }
 
+      # format.json {
+      #   render json: CSV.open(Rails.root.join('db', 'tembla_capacity.csv'), :headers => true).map { |x| x.to_h }.to_json
+      #   # CSV.foreach(Rails.root.join('db', 'tembla_capacity.csv')) do |row|
+      #   #   puts row
+      #     # use row (rails helper)
+      #   # end
+      # }
       format.json {
-        render json: CSV.open(Rails.root.join('db', 'tembla_capacity.csv'), :headers => true).map { |x| x.to_h }.to_json
+        render json: CSV.open(Rails.root.join('db', 'winter-2018-order.csv'), :headers => true).map { |x| x.to_h }.to_json
         # CSV.foreach(Rails.root.join('db', 'tembla_capacity.csv')) do |row|
         #   puts row
           # use row (rails helper)
