@@ -1,47 +1,55 @@
-
-<div id="community-select">
+<form id="community-select" method="post">
+  <h2>Select communities:</h2>
   <div class="community">
-    <input type="checkbox" id="chilete"  value="1.3">
+    <input type="checkbox" name="artisans" id="chilete"  value="1.3">
     <label for="chilete">Chilete</label>
   </div>
   <div class="community">
-    <input type="checkbox" id="huanchaco" value="1.3">
+    <input type="checkbox" name="artisans" id="huanchaco" value="1.3">
     <label for="huanchaco">Huanchao</label>
   </div>
   <div class="community">
-    <input type="checkbox" id="huamachuco" value="1.5">
+    <input type="checkbox" name="artisans" id="huamachuco" value="1.5">
     <label for="huamachuco">Huamachuco</label>
   </div>
   <div class="community">
-    <input type="checkbox" id="julcan" value="1.2">
+    <input type="checkbox" name="artisans" id="julcan" value="1.2">
     <label for="julcan">Julcan</label>
   </div>
   <div class="community">
-    <input type="checkbox" id="magaly" value="2.4">
+    <input type="checkbox" name="artisans"  id="limon-carlo-rapidas" value="3.2">
+    <label for="limon-carlo-rapidas">Limon Carlo (1)</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" name="artisans"  id="limon-carlo-lentas" value="2.2">
+    <label for="limon-carlo-lentas">Limon Carlo (2)</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="magaly" name="artisans" value="2.4">
     <label for="magaly">Magaly</label>
   </div>
   <div class="community">
-    <input type="checkbox" id="milagro" value="1.3">
+    <input type="checkbox" name="artisans" id="milagro" value="1.3">
     <label for="milagro">Milagro</label>
   </div>
   <div class="community">
-    <input type="checkbox" id="paypay" value="1.3">
+    <input type="checkbox" name="artisans" id="paypay" value="1.3">
     <label for="paypay">Paypay</label>
   </div>
   <div class="community">
-    <input type="checkbox" id="progreso-rapidas" value="1.4">
+    <input type="checkbox" name="artisans" id="progreso-rapidas" value="1.4">
     <label for="progreso-rapidas">Progreso (1)</label>
   </div>
   <div class="community">
-    <input type="checkbox" id="progreso-lentas" value="1.2">
+    <input type="checkbox" name="artisans" id="progreso-lentas" value="1.2">
     <label for="progreso-lentas">Progreso (2)</label>
   </div>
   <div class="community">
-    <input type="checkbox" id="otro-sierra" value="1.5">
+    <input type="checkbox" name="artisans" id="otro-sierra" value="1.5">
     <label for="otro-sierra">Otro Sierra</label>
   </div>
   <div class="community">
-    <input type="checkbox" id="palmeras" value="1.3">
+    <input type="checkbox"  name="artisans" id="palmeras" value="1.3">
     <label for="palmeras">Palmeras</label>
   </div>
   <div class="community">
@@ -49,32 +57,31 @@
     <label for="salitre-rapidas">Salitre (1)</label>
   </div>
   <div class="community">
-    <input type="checkbox" id="salitre-lentas" value="1.7">
+    <input type="checkbox" name="artisans" id="salitre-lentas" value="1.7">
     <label for="salitre-lentas">Salitre (2)</label>
   </div>
   <div class="community">
-    <input type="checkbox" id="san-pedro-de-lloc" value="1.3">
+    <input type="checkbox" name="artisans" id="san-pedro-de-lloc" value="1.3">
     <label for="san-pedro-de-lloc">San Pedro de Lloc</label>
   </div>
   <div class="community">
-    <input type="checkbox" id="limon-carlo-rapidas" value="3.2">
-    <label for="limon-carlo-rapidas">Limon Carlo (1)</label>
-  </div>
-  <div class="community">
-    <input type="checkbox" id="limon-carlo-lentas" value="2.2">
-    <label for="limon-carlo-lentas">Limon Carlo (2)</label>
-  </div>
-  <div class="community">
-    <input type="checkbox" id="tembladera-rapidas" value="2.5">
+    <input type="checkbox" name="artisans"  id="tembladera-rapidas" value="2.5">
     <label for="tembladera-rapidas">Tembladera (1)</label>
   </div>
   <div class="community">
-    <input type="checkbox" id="tembladera-lentas" value="1.4">
+    <input type="checkbox" name="artisans" id="tembladera-lentas" value="1.4">
     <label for="tembladera-lentas">Tembladera (2)</label>
+
   </div>
+  <input type="button" name="" value="Set program">
+</form>
+
+<div id="community-display">
+  <h2>Project Capacity:</h2>
 </div>
 
 <div id="vizcontainer">
+  <h2>Winter 2018 Unit Distribution</h2>
   <svg></svg>
 
 </div>
