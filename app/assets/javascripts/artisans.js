@@ -25,8 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function setProductGroups() {
     for (var i=0, len = names.length; i<len; i++) {
       if (names[i].checked === true) {
-        displayBox.innerHTML = "test print" + names[i].id + "success!";
-
+        displayBox.innerHTML = "test print " + names[i].id + " success!";
       }
     }
   }
