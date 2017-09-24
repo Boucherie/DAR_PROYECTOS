@@ -1,5 +1,5 @@
 # DAR PROYECTOS application
-##Desarrollo Artesanal Rentable - Sustainable Artisan Development Projects
+## Desarrollo Artesanal Rentable - Sustainable Artisan Development Projects
 
 This application runs on Rails 5.1.2, and utilizes the D3.js (version 4) library, which integrates the more recent changes to the Javascript language (ES2015/ES6).
 
@@ -11,4 +11,5 @@ Aug 30/17 - csv file added to app, connected directly to AJAX call; relevant dat
 
 
 Sept 22/17 - replaced csv file with current order data, commented out d3 charts for the time being; setting up index page to take production capacity inputs.
+
 Sept 23/17 - Set up working UI, configured scripts to run test message in browser when checkbox is selected.
