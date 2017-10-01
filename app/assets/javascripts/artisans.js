@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var listItem = document.createElement('li');
       listItem.classList.add(el.id)
       var rightSpan = document.createElement('span');
-      var testUpdate = document.createTextNode('test print ' + el.id + ' selected - Rate of ' + el.value + ' units per month.');
+      var testUpdate = document.createTextNode(el.id + ' selected - Rate of ' + el.value + ' units per month.');
       var inputElement = document.createElement('input');
       inputElement.type = 'range';
       inputElement.min = "0"

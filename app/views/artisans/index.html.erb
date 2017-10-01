@@ -93,8 +93,7 @@
 
 </div>
 
-
-  <!-- <script>
+<script>
     $( document ).ready(function() {
     console.log( "ready!" );
     $.ajax({
@@ -102,9 +101,9 @@
       method: "GET",
       dataType: "json"
     }).done(function(data){
-        var profits = [];
+        var units = [];
         data.forEach(function(artisan){
-          profits.push(artisan.profit);
+          units.push(artisan.orderquantity);
         var bags = [];
         var averageDays = [];
         data.forEach(function(artisan){
@@ -113,7 +112,7 @@
         })
 
         var artisanAverageChart = d3.pie();
-        var artisanAverage = artisanAverageChart(averageDays);
+        var artisanAverage = artisanAverageChart(units);
 
         var newArc = d3.arc();
         newArc.innerRadius(50)
@@ -137,15 +136,14 @@
               .append("text")
               .attr("x",220)
               .attr("y",250)
-              .text("TEMBLA");
 
           d3.select("svg")
               .append("text")
               .attr("x",100)
               .attr("y",400)
-              .text("Average number of days, per artisan, to complete one item.");
+              .text("Distribution of orders (see dropdown).");
       })
   });
 });
 
-    </script> -->
+</script>
