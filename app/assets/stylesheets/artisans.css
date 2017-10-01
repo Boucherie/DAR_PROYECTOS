@@ -15,6 +15,15 @@ header {
   padding-bottom: 3rem;
 }
 
+ul li {
+  list-style-type: none;
+  padding-top: 0.5rem;
+}
+
+ul li span {
+  display: block;
+}
+
 #community-select {
   border: 3px ridge gray;
   width: 30%;

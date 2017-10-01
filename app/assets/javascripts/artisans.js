@@ -25,22 +25,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var communityForm = document.getElementById('community-select');
   var listDisplay = document.querySelector('ul');
 
-  function setProductGroups() {
-    for (var i=0, len = names.length; i<len; i++) {
-      if (names[i].checked === true) {
-        // displayBox.innerHTML = "test print " + names[i].id + " success- Rate of " + names[i].value + " units per month." ;
 
-        // var listItem = document.createElement('li');
-        // var rightSpan = document.createElement('span');
-        // var testUpdate = document.createTextNode('test print ' + names[i].id + ' success- Rate of ' + names[i].value + ' units per month.');
-        //
-        // rightSpan.appendChild(testUpdate);
-        // listItem.appendChild(rightSpan);
-        // listDisplay.appendChild(listItem);
-      }
-      // else if (names[i].checked === false){
-      //   listDisplay.removeChild(names[i].ListItem);
-      // }
+
       // need to be able to add and remove element- add works, remove does not.
 
         // 1. create and append element here- name, range slider (test version done)
@@ -49,8 +35,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // 4. add dynamically populated dropdown
         // 5. call function with MVP iterator here; call function containing AJAX call within MVP (hook csv list items into ajax dropdown selection)
         // 6. have range sliders of each list item interact (max= item.value)
-      }
-    }
 
     function addDisplayElement(el){
       var listItem = document.createElement('li');
@@ -66,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function () {
       rightSpan.appendChild(testUpdate);
       listItem.appendChild(rightSpan);
       listDisplay.appendChild(listItem);
-      listDisplay.appendChild(inputElement);
+      listItem.appendChild(inputElement);
     }
 
     function removeDisplayElement(el){
