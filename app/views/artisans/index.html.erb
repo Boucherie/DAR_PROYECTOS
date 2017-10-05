@@ -1,75 +1,76 @@
 <form id="community-select" method="post">
   <h2>Select communities:</h2>
   <div class="community">
-    <input type="checkbox" name="artisans" id="chilete"  value="1.3">
+    <input type="checkbox" id="chilete">
     <label for="chilete">Chilete</label>
   </div>
   <div class="community">
-    <input type="checkbox" name="artisans" id="huanchaco" value="1.3">
+    <input type="checkbox" id="huanchao" value="">
     <label for="huanchaco">Huanchao</label>
   </div>
   <div class="community">
-    <input type="checkbox" name="artisans" id="huamachuco" value="1.5">
+    <input type="checkbox" id="huamachuco" value="">
     <label for="huamachuco">Huamachuco</label>
   </div>
   <div class="community">
-    <input type="checkbox" name="artisans" id="julcan" value="1.2">
+    <input type="checkbox" id="julcan" value="">
     <label for="julcan">Julcan</label>
   </div>
   <div class="community">
-    <input type="checkbox" name="artisans"  id="limon-carlo-rapidas" value="3.2">
+    <input type="checkbox"  id="limon-carlo-rapidas" value="">
     <label for="limon-carlo-rapidas">Limon Carlo (1)</label>
   </div>
   <div class="community">
-    <input type="checkbox" name="artisans"  id="limon-carlo-lentas" value="2.2">
-    <label for="limon-carlo-lentas">Limon Carlo (2)</label>
+    <input type="checkbox" id="limon-carlo-lentas" value="">
+    <label for="limoncarlo2">Limon Carlo (2)</label>
   </div>
   <div class="community">
-    <input type="checkbox" id="magaly" name="artisans" value="2.4">
+    <input type="checkbox" id="magaly" name="magaly" value="">
     <label for="magaly">Magaly</label>
   </div>
   <div class="community">
-    <input type="checkbox" name="artisans" id="milagro" value="1.3">
+    <input type="checkbox" id="milagro" value="">
     <label for="milagro">Milagro</label>
   </div>
   <div class="community">
-    <input type="checkbox" name="artisans" id="paypay" value="1.3">
-    <label for="paypay">Paypay</label>
-  </div>
-  <div class="community">
-    <input type="checkbox" name="artisans" id="progreso-rapidas" value="1.4">
-    <label for="progreso-rapidas">Progreso (1)</label>
-  </div>
-  <div class="community">
-    <input type="checkbox" name="artisans" id="progreso-lentas" value="1.2">
-    <label for="progreso-lentas">Progreso (2)</label>
-  </div>
-  <div class="community">
-    <input type="checkbox" name="artisans" id="otro-sierra" value="1.5">
+    <input type="checkbox" id="otrosierra" value="">
     <label for="otro-sierra">Otro Sierra</label>
   </div>
   <div class="community">
-    <input type="checkbox"  name="artisans" id="palmeras" value="1.3">
+    <input type="checkbox" id="palmeras" value="">
     <label for="palmeras">Palmeras</label>
   </div>
   <div class="community">
-    <input type="checkbox" id="salitre-rapidas" value="3.0">
+    <input type="checkbox" id="paypay" value="">
+    <label for="paypay">Paypay</label>
+  </div>
+
+  <div class="community">
+    <input type="checkbox" id="progreso-rapidas" value="">
+    <label for="progreso-rapidas">Progreso (1)</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="progreso-lentas" value="">
+    <label for="progreso-lentas">Progreso (2)</label>
+  </div>
+  <div class="community">
+    <input type="checkbox" id="salitre-rapidas" value="">
     <label for="salitre-rapidas">Salitre (1)</label>
   </div>
   <div class="community">
-    <input type="checkbox" name="artisans" id="salitre-lentas" value="1.7">
+    <input type="checkbox" id="salitre-lentas" value="">
     <label for="salitre-lentas">Salitre (2)</label>
   </div>
   <div class="community">
-    <input type="checkbox" name="artisans" id="san-pedro-de-lloc" value="1.3">
+    <input type="checkbox" id="san-pedro-de-lloc" value="">
     <label for="san-pedro-de-lloc">San Pedro de Lloc</label>
   </div>
   <div class="community">
-    <input type="checkbox" name="artisans"  id="tembladera-rapidas" value="2.5">
+    <input type="checkbox" id="tembladera-rapidas" value="">
     <label for="tembladera-rapidas">Tembladera (1)</label>
   </div>
   <div class="community">
-    <input type="checkbox" name="artisans" id="tembladera-lentas" value="1.4">
+    <input type="checkbox" id="tembladera-lentas" value="">
     <label for="tembladera-lentas">Tembladera (2)</label>
   </div>
 
@@ -93,57 +94,57 @@
 
 </div>
 
-<script>
-    $( document ).ready(function() {
-    console.log( "ready!" );
-    $.ajax({
-      url: "http://localhost:3000/artisans",
-      method: "GET",
-      dataType: "json"
-    }).done(function(data){
-        var units = [];
-        data.forEach(function(artisan){
-          units.push(artisan.orderquantity);
-        var bags = [];
-        var averageDays = [];
-        data.forEach(function(artisan){
-          bags.push(artisan.bags);
-          averageDays.push(artisan.average);
+  <!-- <script>
+      $( document ).ready(function() {
+      console.log( "ready!" );
+      $.ajax({
+        url: "http://localhost:3000/artisans",
+        method: "GET",
+        dataType: "json"
+      }).done(function(data){
+          var units = [];
+          data.forEach(function(artisan){
+            units.push(artisan.orderquantity);
+          var bags = [];
+          var averageDays = [];
+          data.forEach(function(artisan){
+            bags.push(artisan.bags);
+            averageDays.push(artisan.average);
+          })
+
+          var artisanAverageChart = d3.pie();
+          var artisanAverage = artisanAverageChart(units);
+
+          var newArc = d3.arc();
+          newArc.innerRadius(50)
+            .outerRadius(100)
+          // console.log(newArc(geoEarnings[0]));
+
+          var fillScale = d3.scaleOrdinal()
+            .range([d3.rgb("#581845"), d3.rgb("#34495E"), d3.rgb("#1ABC9C"), d3.rgb("#3498DB"), d3.rgb("#C70039")])
+          d3.select("svg")
+            .append("g")
+            .attr("transform","translate(250,250)")
+            .selectAll("path")
+            .data(artisanAverage)
+            .enter()
+            .append("path")
+            .attr("d", newArc)
+            .style("fill", (d,i) => fillScale(i))
+            .style("stroke", "black")
+            .style("stroke-width", "2px");
+            d3.select("svg")
+                .append("text")
+                .attr("x",220)
+                .attr("y",250)
+
+            d3.select("svg")
+                .append("text")
+                .attr("x",100)
+                .attr("y",400)
+                .text("Distribution of orders (see dropdown).");
         })
-
-        var artisanAverageChart = d3.pie();
-        var artisanAverage = artisanAverageChart(units);
-
-        var newArc = d3.arc();
-        newArc.innerRadius(50)
-          .outerRadius(100)
-        // console.log(newArc(geoEarnings[0]));
-
-        var fillScale = d3.scaleOrdinal()
-          .range([d3.rgb("#581845"), d3.rgb("#34495E"), d3.rgb("#1ABC9C"), d3.rgb("#3498DB"), d3.rgb("#C70039")])
-        d3.select("svg")
-          .append("g")
-          .attr("transform","translate(250,250)")
-          .selectAll("path")
-          .data(artisanAverage)
-          .enter()
-          .append("path")
-          .attr("d", newArc)
-          .style("fill", (d,i) => fillScale(i))
-          .style("stroke", "black")
-          .style("stroke-width", "2px");
-          d3.select("svg")
-              .append("text")
-              .attr("x",220)
-              .attr("y",250)
-
-          d3.select("svg")
-              .append("text")
-              .attr("x",100)
-              .attr("y",400)
-              .text("Distribution of orders (see dropdown).");
-      })
+    });
   });
-});
 
-</script>
+  </script> -->
