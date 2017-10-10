@@ -1,76 +1,92 @@
 <form id="community-select" method="post">
   <h2>Select communities:</h2>
   <div class="community">
-    <input type="checkbox" id="chilete">
+    <input type="checkbox" id="chilete" value="" name="">
     <label for="chilete">Chilete</label>
   </div>
+
   <div class="community">
-    <input type="checkbox" id="huanchao" value="">
+    <input type="checkbox" id="huanchao" value="" name="">
     <label for="huanchaco">Huanchao</label>
   </div>
+
   <div class="community">
-    <input type="checkbox" id="huamachuco" value="">
+    <input type="checkbox" id="huamachuco" value="" name="">
     <label for="huamachuco">Huamachuco</label>
   </div>
+
   <div class="community">
-    <input type="checkbox" id="julcan" value="">
+    <input type="checkbox" id="julcan" value="" name="">
     <label for="julcan">Julcan</label>
   </div>
+
   <div class="community">
-    <input type="checkbox"  id="limon-carlo-rapidas" value="">
+    <input type="checkbox"  id="limon-carlo-rapidas" value="" name="">
     <label for="limon-carlo-rapidas">Limon Carlo (1)</label>
   </div>
+
   <div class="community">
-    <input type="checkbox" id="limon-carlo-lentas" value="">
+    <input type="checkbox" id="limon-carlo-lentas" value="" name="">
     <label for="limoncarlo2">Limon Carlo (2)</label>
   </div>
+
   <div class="community">
-    <input type="checkbox" id="magaly" name="magaly" value="">
+    <input type="checkbox" id="magaly" name="magaly" value="" name="">
     <label for="magaly">Magaly</label>
   </div>
+
   <div class="community">
-    <input type="checkbox" id="milagro" value="">
+    <input type="checkbox" id="milagro" value="" name="">
     <label for="milagro">Milagro</label>
   </div>
+
   <div class="community">
-    <input type="checkbox" id="otrosierra" value="">
+    <input type="checkbox" id="otrosierra" value="" name="">
     <label for="otro-sierra">Otro Sierra</label>
   </div>
+
   <div class="community">
-    <input type="checkbox" id="palmeras" value="">
+    <input type="checkbox" id="palmeras" value="" name="">
     <label for="palmeras">Palmeras</label>
   </div>
+
   <div class="community">
-    <input type="checkbox" id="paypay" value="">
+    <input type="checkbox" id="paypay" value="" name="">
     <label for="paypay">Paypay</label>
   </div>
 
   <div class="community">
-    <input type="checkbox" id="progreso-rapidas" value="">
+    <input type="checkbox" id="progreso-rapidas" value="" name="">
     <label for="progreso-rapidas">Progreso (1)</label>
   </div>
+
   <div class="community">
-    <input type="checkbox" id="progreso-lentas" value="">
+    <input type="checkbox" id="progreso-lentas" value="" name="">
     <label for="progreso-lentas">Progreso (2)</label>
   </div>
+
   <div class="community">
-    <input type="checkbox" id="salitre-rapidas" value="">
+    <input type="checkbox" id="salitre-rapidas" value="" name="">
     <label for="salitre-rapidas">Salitre (1)</label>
   </div>
+
   <div class="community">
-    <input type="checkbox" id="salitre-lentas" value="">
+    <input type="checkbox" id="salitre-lentas" value="" name="">
     <label for="salitre-lentas">Salitre (2)</label>
   </div>
+
   <div class="community">
-    <input type="checkbox" id="san-pedro-de-lloc" value="">
+    <input type="checkbox" id="san-pedro-de-lloc" value="" name="">
     <label for="san-pedro-de-lloc">San Pedro de Lloc</label>
   </div>
+
   <div class="community">
-    <input type="checkbox" id="tembladera-rapidas" value="">
+    <input type="checkbox" id="tembladera-rapidas" value="" name="">
     <label for="tembladera-rapidas">Tembladera (1)</label>
   </div>
+
   <div class="community">
-    <input type="checkbox" id="tembladera-lentas" value="">
+    <input type="checkbox" id="tembladera-lentas" value="" name="">
     <label for="tembladera-lentas">Tembladera (2)</label>
   </div>
 
@@ -78,9 +94,15 @@
 
 <div id="community-display">
   <h2>Project Capacity:</h2>
-  <select id="optionsA" class="" name="">
+  <div class="">
 
+  <select id="optionsA" class="" name="">
+  <option value="" disabled selected>Select one:</option>
   </select>
+  <p id="order-displays" value="">&nbsp---</p>
+</div>
+
+
 
   <ul>
     <!-- create input range (slider) here, hide and clone node - might have to be appended in JS file-->

@@ -22,6 +22,7 @@ ul li {
 
 ul li span {
   display: block;
+  text-align: justify;
 }
 
 #community-select {
@@ -33,8 +34,8 @@ ul li span {
 }
 #community-display {
   float: left;
-  width: 30%;
-  text-align: center;
+  width: 40%;
+  text-align: left;
 
 }
 
@@ -47,4 +48,9 @@ ul li span {
 
 #vizcontainer {
   clear: both;
+}
+
+#order-displays{
+  display: inline;
+  float: right;
 }

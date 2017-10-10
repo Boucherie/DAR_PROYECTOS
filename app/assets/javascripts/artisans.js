@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function () {
   var displayBox = document.getElementById('community-display');
   var communityForm = document.getElementById('community-select');
   var listDisplay = document.querySelector('ul');
+  var rangeSelect = document.querySelectorAll('.product-range');
+  const displayOrderSize = document.getElementById('order-displays');
+
 
   const chilete = document.querySelector('#chilete');
   const  huanchao = document.querySelector('#huanchao');
@@ -34,18 +37,22 @@ document.addEventListener('DOMContentLoaded', function () {
       data.forEach(function(item){
         globalData[item.id] = item;
         products.push(item.data.name).toString();
-      });
 
+      });
       console.log(products);
       var orderSize = [];
       data.forEach(function(item){
         addOptionToDropDown(item);
         orderSize.push(item.data.orderquantity).toFixed(1);
       });
+      console.log(orderSize);
+
       var options = document.querySelector('#optionsA');
 
       options.addEventListener('change', function(option){
         item = globalData[option.target.value];
+        units = globalData[option.target.id];
+
         chilete.value = Number(item.data['chilete']);
         huanchao.value = Number(item.data['huanchao']);
         huamachuco.value = Number(item.data['huamachuco']);
@@ -64,10 +71,13 @@ document.addEventListener('DOMContentLoaded', function () {
         sanpedrodelloc.value = Number(item.data['sanpedrodelloc']);
         tembladera1.value = Number(item.data['tembladera1']);
         tembladera2.value = Number(item.data['tembladera2']);
+        displayOrderSize.value = Number(item.data['orderquantity']);
+        displayOrderSize.innerText = Number(item.data['orderquantity']);
         while (listDisplay.firstChild){
           listDisplay.removeChild( listDisplay.firstChild );
         }
         communityForm.reset();
+
         // add function unchecking all checkboxes (for statement)
       })
 
@@ -80,15 +90,23 @@ document.addEventListener('DOMContentLoaded', function () {
     listItem.classList.add(el.id)
     var rightSpan = document.createElement('span');
     var testUpdate = document.createTextNode(el.id + ' selected - Rate of ' + el.value + ' units per month.');
+
     var inputElement = document.createElement('input');
     inputElement.type = 'range';
     inputElement.min = "0"
-    inputElement.max = "1";
+    inputElement.max = Number(displayOrderSize.value);
+    inputElement.className = ".product-range";
+    var unitsChosen = inputElement.value
+
+    var rangeDisplay = document.createElement('p');
+    rangeDisplay.innerText = "Number of units: " + unitsChosen;
+
 
     rightSpan.appendChild(testUpdate);
     listItem.appendChild(rightSpan);
     listDisplay.appendChild(listItem);
     listItem.appendChild(inputElement);
+    listItem.appendChild(rangeDisplay);
   }
 
   function removeDisplayElement(el){
@@ -111,11 +129,12 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function addOptionToDropDown(item){
+
     var options = document.querySelector('#optionsA');
     var newOption = document.createElement('option');
     newOption.innerText = item.data.name;
     newOption.value = item.id;
-    newOption.id = item.data['orderquantity'];
+
     options.appendChild(newOption);
     // see options stackOverflow article to hook into dynamic list.
         // adding ranges to list items
