@@ -25,6 +25,12 @@ ul li span {
   text-align: justify;
 }
 
+
+.slider {
+  clear:both;
+  width: 50%;
+
+}
 #community-select {
   border: 3px ridge gray;
   width: 30%;

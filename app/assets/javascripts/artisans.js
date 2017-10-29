@@ -6,7 +6,11 @@ document.addEventListener('DOMContentLoaded', function () {
   var rangeSelect = document.querySelectorAll('.product-range');
   const displayOrderSize = document.getElementById('order-displays');
 
+  $('.slider').slider({
+    values: [76, 98, 56]
+  })
 
+  // select inputs
   const chilete = document.querySelector('#chilete');
   const  huanchao = document.querySelector('#huanchao');
   const  huamachuco = document.querySelector('#huamachuco');
@@ -52,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
       options.addEventListener('change', function(option){
         item = globalData[option.target.value];
         units = globalData[option.target.id];
-
+        // append production rates to communities as orders change
         chilete.value = Number(item.data['chilete']);
         huanchao.value = Number(item.data['huanchao']);
         huamachuco.value = Number(item.data['huamachuco']);
@@ -73,16 +77,17 @@ document.addEventListener('DOMContentLoaded', function () {
         tembladera2.value = Number(item.data['tembladera2']);
         displayOrderSize.value = Number(item.data['orderquantity']);
         displayOrderSize.innerText = Number(item.data['orderquantity']);
+        // removes the item from the list when unchecked
         while (listDisplay.firstChild){
           listDisplay.removeChild( listDisplay.firstChild );
         }
         communityForm.reset();
-
-        // add function unchecking all checkboxes (for statement)
+        // add function unchecking all checkboxes (
       })
 
 
 // ------element list, interactive range component-------
+
 
 
   function addDisplayElement(el){
@@ -91,16 +96,18 @@ document.addEventListener('DOMContentLoaded', function () {
     var rightSpan = document.createElement('span');
     var testUpdate = document.createTextNode(el.id + ' selected - Rate of ' + el.value + ' units per month.');
 
+    // switch out and add jQuery slider
     var inputElement = document.createElement('input');
     inputElement.type = 'range';
     inputElement.min = "0"
     inputElement.max = Number(displayOrderSize.value);
     inputElement.className = ".product-range";
+    // inputElement.oninput="myFunction(this.value)"";
     var unitsChosen = inputElement.value
 
     var rangeDisplay = document.createElement('p');
-    rangeDisplay.innerText = "Number of units: " + unitsChosen;
-
+    rangeDisplay.innerText = "Number of units: " + inputElement.value;
+    // next problem - getting range value to change when adjusted
 
     rightSpan.appendChild(testUpdate);
     listItem.appendChild(rightSpan);
@@ -118,8 +125,6 @@ document.addEventListener('DOMContentLoaded', function () {
     names[i].addEventListener('click', function(e){
       console.log(i,e);
       const el = e.currentTarget;
-      // e.preventDefault();
-      // setProductGroups();
       if (el.checked === true){
         addDisplayElement(el);
       }else if (el.checked === false){
@@ -140,4 +145,5 @@ document.addEventListener('DOMContentLoaded', function () {
         // adding ranges to list items
     };
   });
+  // there will be a select button eventually to push list into a hash and store below.
 });
