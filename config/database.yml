@@ -6,14 +6,11 @@
 #
 development:
   adapter: postgresql
-  database: db/winter-2018-order.csv
 
 test:
   adapter: postgresql
-  database: db/winter-2018-order.csv
 
 
 production:
   adapter: postgresql
-  database: db/winter-2018-order.csv
   host: localhost
