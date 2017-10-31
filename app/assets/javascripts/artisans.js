@@ -85,9 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // add function unchecking all checkboxes (
       })
 
-
 // ------element list, interactive range component-------
-
 
 
   function addDisplayElement(el){
