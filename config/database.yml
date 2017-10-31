@@ -6,6 +6,7 @@
 #
 development:
   adapter: postgresql
+  
 
 test:
   adapter: postgresql

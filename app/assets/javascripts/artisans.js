@@ -32,7 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   console.log( "ready!" );
     $.ajax({
-      url: "https://localhost:3000/artisans",
+
+      url: "https://agile-hollows-73020.herokuapp.com/artisans",
       method: "GET",
       dataType: "json"
     }).done(function(data){
