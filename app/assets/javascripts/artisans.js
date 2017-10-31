@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   console.log( "ready!" );
     $.ajax({
-      url: "http://localhost:3000/artisans",
+      url: "https://localhost:3000/artisans",
       method: "GET",
       dataType: "json"
     }).done(function(data){
