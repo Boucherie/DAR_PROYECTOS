@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>calculator</title>
+    <link rel="stylesheet" href="map.css">
+    <link rel="stylesheet" href="thruco2.css">
+
+    <script src="javascript/thruco2.js"></script>
+  </head>
+  <body>
+    <header>
+      <a href="https://github.com/vrunda2712/thru_co2/blob/master/README.md">link to docs</a>
+    </header>
+    <hr>
+      <input id="origin-input" class="controls" type="text"
+            placeholder="Enter an origin location">
+      <input id="destination-input" class="controls" type="text"
+            placeholder="Enter a destination location">
+
+      <div id="mode-selector" class="controls">
+        <input type="radio" name="type" id="changemode-walking" checked="checked">
+        <label for="changemode-walking">Walking</label>
+
+        <input type="radio" name="type" id="changemode-bicycling">
+        <label for="changemode-bicycling">Bicycling</label>
+
+        <input type="radio" name="type" id="changemode-transit">
+        <label for="changemode-transit">Transit</label>
+
+        <input type="radio" name="type" id="changemode-driving">
+        <label for="changemode-driving">Driving</label>
+      </div>
+
+      <div id="map"></div>
+      <br>
+    <!-- <form id= "user-form"> -->
+
+      <div id="display-dashboard">
+        <div id="emissions-display-box">
+          <div class="dis">
+            Distance: <span id="distance"></span>
+          </div>
+          <div class="types">
+
+            <form id="transit-types">
+              <select id="transit-options">
+                <option value="0.05363" >LRT</option>
+                <option value="0.10172" >Local Bus</option>
+                <option value="0.05789" >Subway</option>
+                <option value="0.04885">Heavy Rail</option>
+              </select>
+            </form>
+
+            <script type="text/javascript">
+              var transitTypes = document.querySelector("#transit-types");
+              console.log(transitTypes);
+            </script>
+
+            <form id="vehicle-types">
+              <select id="vehicle-options">
+                <option value="0.23606">Car (Gasoline)</option>
+                <option value="0.27361">Car (Diesel)</option>
+                <option value="0.16459">Car (Hybrid)</option>
+                <option value="0.23514">4x4</option>
+                <option value="0.23691">Car (Sports Model)</option>
+                <option value="0.11978">Moped / Scooter</option>
+                <option value="0.12762">Motorcycle</option>
+              </select>
+            </form>
+
+
+          </div>
+          <br>
+            <p id="emissions-display-statement">CO2 emissions: </p>
+            <p id="emissions-value"> --- </p>
+          </div>
+
+          <div id="score-display-box">
+            <p id="score-display-statement">Your Score: </p>
+            <p id="score-value"> --- </p>
+        </div>
+      </div>
+
+        </form>
+      <footer>
+        <div id="score-explanation">
+          <br>
+          <h3>Scores are determined from emission factors as defined in DEFRA (Department for Business, Energy and Industrial Strategy) guidelines. </h3>
+          <br>
+          <hr>
+          <br>
+          <p>For this calculator, note that cycling was considered to be the baseline level in the scoring system, as it expended to least amount of energy. Emissions for walking and biking were assigned nominal factors to account for the fact that both tasks <em>do</em> expend some energy. Therefore, the combined reduction of energy expended and amount of personal risk taken on accounts for the scores observed in this calculator. </p>
+        </div>
+      </footer>
+
+    </body>
+</html>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGFD00-tY6V7DneSkOBCJL_gDVrL0H2rU&libraries=places&callback=initMap"
+          async defer></script>
+  </body>
+</html>

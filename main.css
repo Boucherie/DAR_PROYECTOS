@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.35;
+
+}
+
+body {
+  margin: 0 15%;
+
+}
+
+header {
+  font-variant: small-caps;
+}
+
+#title-page {
+  position: relative;
+}
+
+#subtitle {
+  visibility: hidden;
+  position: absolute;
+  right: 10%;
+  padding: 5px;
+}
+
+.headerimg {
+  background-image: url("img/torontomap.png");
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 30rem;
+  text-align: center;
+  margin: auto;
+  margin-top: -5%;
+  background-size: contain;
+}
+
+nav {
+  position: absolute;
+  bottom: 25%;
+  text-align: center;
+  margin: auto;
+  opacity: 0.6;
+  margin-top: 5em;
+}
+
+nav, h1, h4, .display-project-box-text {
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+}
+
+li {
+  display: inline;
+  padding: 0 1em;
+}
+
+main {
+  margin: -5% 0 auto;
+
+}
+
+.display-project-box {
+  display: block;
+  border: 5px solid black;
+  width: 200px;
+  height: 300px;
+  margin: 2% 2% 2% 5%;
+  float: left;
+  position: relative;
+  opacity:0.6;
+}
+
+.display-project-box:hover {
+  border: 7px solid black;
+  opacity: 1;
+}
+
+.display-project-box-icon {
+  border: 2px solid black;
+  margin: 5% auto;
+  width: 160px;
+  height: 200px;
+  background-image: url("img/ink.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#thruCO2 {
+  background-image: url("img/calcintro.png");
+}
+
+#d3Intro {
+  background-image: url("img/d3-intro.png");
+}
+
+#darProyectos {
+  background-image: url("img/DAR-0930.png");
+}
+
+#lcboApp {
+  background-image: url("img/LCBO-api-0930.png");
+}
+
+#twentyOneArtists {
+  background-image: url("img/21-artists.png");
+}
+
+#communityChest {
+  background-image: url("img/communitychest.png");
+  box-sizing: border-box;
+}
+
+.display-project-box-text {
+  font-size: 16px;
+  margin: 5% auto;
+  text-align: center;
+  padding-top: -10%;
+  vertical-align: middle;
+  color: black;
+  text-decoration: none;
+  line-height: 95%;
+}
+
+span {
+  vertical-align: sub;
+}
+
+footer {
+  clear:both;
+  background-color: black;
+  color: white;
+  width: 100%
+  position: relative;
+  margin-top: 1em;
+  margin-bottom: 0;
+  position: static;
+  padding: 0 0.25rem;
+}
